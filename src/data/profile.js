@@ -6,7 +6,7 @@
 
 export const profile = {
   name: 'Ralph', 
-  initials: 'RG', 
+  initials: 'R', 
   role: 'BSCS Student',
   tagline:
     'I do not know anything, I only know what I know.',
