@@ -14,21 +14,16 @@ export default function About() {
         <h2 className="section__title">Bio</h2>
         <div className="prose">
           <p>
-            I&apos;m an Information Technology student focused on front-end web
+            I&apos;m an Computer Science student focused on full stack
             development. Most of what I know came from building things, breaking
-            them, and figuring out why they broke — which is still my favourite
+            them, and figuring out why they broke, which is still my favourite
             way to learn a new tool.
           </p>
           <p>
-            My current work is in React: composing interfaces out of small
+            My current work is in React and Laravel: composing interfaces out of small
             components, keeping state as small as possible, and making sure the
             result is usable on a phone and with a keyboard, not just on my
-            laptop. {profile.resumeNote}
-          </p>
-          <p>
-            Outside of coursework I rebuild interfaces I admire as practice, which
-            is how I ended up caring about details like focus styles, loading
-            states, and what happens when a request fails.
+            laptop.
           </p>
         </div>
       </section>

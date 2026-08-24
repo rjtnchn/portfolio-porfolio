@@ -6,30 +6,9 @@
 // because a URL is just text. Compare accordingly — see ProjectDetail.jsx.
 
 export const projects = [
+
   {
     id: 1,
-    title: 'Product Catalog',
-    summary:
-      'A responsive product listing built to practice passing data into reusable components with props.',
-    description:
-      'My first real component-composition exercise. A single ProductCard component receives name, price, image, and stock status through props, and the parent page renders the whole catalog by mapping over an array of product objects. Adding a product means adding one object to the data file — no JSX gets copy-pasted.',
-    highlights: [
-      'One reusable ProductCard component drives the entire grid',
-      'Catalog rendered with .map() over a data array instead of duplicated markup',
-      'Conditional "Out of stock" badge based on a prop value',
-      'CSS Grid layout that reflows from three columns down to one on mobile',
-    ],
-    tech: ['React', 'JSX', 'Props', 'CSS Grid'],
-    role: 'Solo — Laboratory Activity 1',
-    year: '2026',
-    status: 'Completed',
-    link: 'https://github.com/rjtnchn',
-    repo: 'https://github.com/rjtnchn',
-    takeaway:
-      'Props are a one-way street. Once I stopped fighting that and let data flow down from a single source, the component tree got much easier to reason about.',
-  },
-  {
-    id: 2,
     title: 'Student Directory',
     summary:
       'A searchable, filterable directory of student records powered by useState.',
@@ -51,7 +30,7 @@ export const projects = [
       'Storing the filtered array in state was my first instinct and it caused stale results immediately. Deriving it on each render fixed the bug and deleted code.',
   },
   {
-    id: 3,
+    id: 2,
     title: 'Portfolio & Resume Site',
     summary:
       'This site — a multi-page single-page application with client-side routing and a live Vercel deployment.',
@@ -74,10 +53,10 @@ export const projects = [
       'The refresh-gives-404 problem finally made routing click for me: the router only exists after index.html loads, so the server has to be told to serve index.html for paths it does not recognise.',
   },
   {
-    id: 4,
+    id: 3,
     title: 'Task Tracker',
     summary:
-      'A to-do app with add, complete, delete, and filter — the classic state-management drill.',
+      'A to-do app with add, complete, delete, and filter.',
     description:
       'Tasks live in a single useState array. Adding, toggling, and deleting all produce a brand new array rather than mutating the existing one, which is what keeps React re-rendering reliably. A filter row switches between All / Active / Done views, and the remaining-task count updates from the same source of truth.',
     highlights: [
@@ -94,50 +73,6 @@ export const projects = [
     repo: 'https://github.com/rjtnchn',
     takeaway:
       'Mutating the array with .push() looked fine in the console but never re-rendered. That bug taught me why React compares references.',
-  },
-  {
-    id: 5,
-    title: 'Weather Lookup',
-    summary:
-      'A city weather lookup that fetches from a public API and handles the loading and error states properly.',
-    description:
-      'Type a city, get current conditions. The interesting part was not the happy path but everything around it: a loading indicator while the request is in flight, a readable error message when the city does not exist or the network fails, and making sure a slow response cannot overwrite a newer one.',
-    highlights: [
-      'Async data fetching with fetch() inside an effect',
-      'Explicit loading, success, error, and empty states',
-      'Error handling for bad city names and failed requests',
-      'Guard against out-of-order responses from rapid searches',
-    ],
-    tech: ['React', 'useEffect', 'Fetch API', 'REST', 'Async/Await'],
-    role: 'Solo — practice project',
-    year: '2026',
-    status: 'Completed',
-    link: 'https://github.com/rjtnchn',
-    repo: 'https://github.com/rjtnchn',
-    takeaway:
-      'A real request has at least four outcomes, not one. Designing for loading and failure up front is much less painful than bolting it on after.',
-  },
-  {
-    id: 6,
-    title: 'Recipe Finder',
-    summary:
-      'Browse recipes by category and open a full detail view — my first crack at nested, data-driven navigation.',
-    description:
-      'Recipes are grouped by category, and each card opens a detail view with ingredients and step-by-step instructions. This was the project where routing by id started to make sense, and it directly shaped how the /projects/:id route on this portfolio works.',
-    highlights: [
-      'Category filtering across a recipe data set',
-      'Detail view addressed by a unique recipe id',
-      'Ingredient and instruction lists rendered from nested arrays',
-      'Graceful fallback when an id does not match any recipe',
-    ],
-    tech: ['React', 'React Router', 'Dynamic Routes', 'CSS Flexbox'],
-    role: 'Solo — practice project',
-    year: '2026',
-    status: 'Completed',
-    link: 'https://github.com/rjtnchn',
-    repo: 'https://github.com/rjtnchn',
-    takeaway:
-      'Handling the "id does not exist" case is not an edge case — anyone can type a URL by hand, so the lookup always needs a fallback.',
   },
 ];
 

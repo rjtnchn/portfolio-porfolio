@@ -3,7 +3,41 @@ import { profile } from '../data/profile';
 
 const EMPTY = { name: '', email: '', message: '' };
 
+// Built from whatever is actually filled in on `profile`, so deleting any
+// optional field (phone, github, linkedin...) just removes that row instead of
+// crashing the page.
+function buildDetails() {
+  const { email, phone, location, github, linkedin } = profile;
+
+  return [
+    email && {
+      label: 'Email',
+      text: email,
+      href: `mailto:${email}`,
+    },
+    phone && {
+      label: 'Phone',
+      text: phone,
+      href: `tel:${phone.replace(/[^\d+]/g, '')}`,
+    },
+    location && { label: 'Location', text: location },
+    github && {
+      label: 'GitHub',
+      text: github.replace(/^https?:\/\/(www\.)?/, ''),
+      href: github,
+      external: true,
+    },
+    linkedin && {
+      label: 'LinkedIn',
+      text: linkedin.replace(/^https?:\/\/(www\.)?/, ''),
+      href: linkedin,
+      external: true,
+    },
+  ].filter(Boolean);
+}
+
 export default function Contact() {
+  const details = buildDetails();
   const [form, setForm] = useState(EMPTY);
   const [errors, setErrors] = useState({});
   const [sent, setSent] = useState(false);
@@ -54,32 +88,23 @@ export default function Contact() {
         <section className="contact__details">
           <h2 className="section__title">Details</h2>
           <ul className="contact__list">
-            <li>
-              <span className="contact__label">Email</span>
-              <a href={`mailto:${profile.email}`}>{profile.email}</a>
-            </li>
-            <li>
-              <span className="contact__label">Phone</span>
-              <a href={`tel:${profile.phone.replace(/\s/g, '')}`}>
-                {profile.phone}
-              </a>
-            </li>
-            <li>
-              <span className="contact__label">Location</span>
-              <span>{profile.location}</span>
-            </li>
-            <li>
-              <span className="contact__label">GitHub</span>
-              <a href={profile.github} target="_blank" rel="noreferrer">
-                {profile.github.replace('https://', '')}
-              </a>
-            </li>
-            <li>
-              <span className="contact__label">LinkedIn</span>
-              <a href={profile.linkedin} target="_blank" rel="noreferrer">
-                {profile.linkedin.replace('https://www.', '')}
-              </a>
-            </li>
+            {details.map((item) => (
+              <li key={item.label}>
+                <span className="contact__label">{item.label}</span>
+                {item.href ? (
+                  <a
+                    href={item.href}
+                    {...(item.external
+                      ? { target: '_blank', rel: 'noreferrer' }
+                      : {})}
+                  >
+                    {item.text}
+                  </a>
+                ) : (
+                  <span>{item.text}</span>
+                )}
+              </li>
+            ))}
           </ul>
         </section>
 
