@@ -5,7 +5,7 @@
 // ---------------------------------------------------------------------------
 
 export const profile = {
-  name: 'Ralph Gabriel Clemeno', 
+  name: 'Ralph', 
   initials: 'RG', 
   role: 'BSCS Student',
   tagline:
@@ -15,13 +15,13 @@ export const profile = {
   phone: '+63 956 735 2083',
   github: 'https://github.com/rjtnchn',
   resumeNote:
-    'Currently taking CCS112 — Application Development and Emerging Technologies.',
+    'Currently 3rd year of my Computer Science journey',
 };
 
 export const skills = [
   {
     group: 'Languages',
-    items: ['JavaScript (ES6+)', 'HTML5', 'CSS3', 'PHP', 'Java', 'SQL'],
+    items: ['JavaScript (ES6+)', 'HTML5', 'CSS3', 'PHP', 'Java', 'MySQL'],
   },
   {
     group: 'Frameworks & Libraries',
@@ -29,7 +29,7 @@ export const skills = [
   },
   {
     group: 'Tools & Platforms',
-    items: ['Git & GitHub', 'Vercel', 'VS Code', 'MySQL', 'Postman', 'Figma'],
+    items: ['Git & GitHub', 'Vercel', 'VS Code', 'MySQL', 'Docker', 'Postman', 'Figma'],
   },
   {
     group: 'Concepts',
