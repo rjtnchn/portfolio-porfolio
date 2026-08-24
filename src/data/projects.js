@@ -13,7 +13,7 @@ export const projects = [
     summary:
       'A searchable, filterable directory of student records powered by useState.',
     description:
-      'Built to get comfortable with state. A search box filters the student list as you type, and a course dropdown narrows it further. Both filters are held in useState and combined in a single derived list during render, so the displayed results are never stored in state — they are always computed from the current inputs.',
+      'Built to get comfortable with state. A search box filters the student list as you type, and a course dropdown narrows it further. Both filters are held in useState and combined in a single derived list during render, so the displayed results are never stored in state and they are always computed from the current inputs.',
     highlights: [
       'Live search that filters on every keystroke (controlled input)',
       'Second filter by course, combinable with the search term',
@@ -33,7 +33,7 @@ export const projects = [
     id: 2,
     title: 'Portfolio & Resume Site',
     summary:
-      'This site — a multi-page single-page application with client-side routing and a live Vercel deployment.',
+      'A multi-page single-page application with client-side routing and a live Vercel deployment.',
     description:
       'A five-page portfolio wired up with react-router-dom. The navbar and footer are rendered once in App.jsx around the <Routes> block, so they persist while only the matched page component swaps out. Includes a dynamic /projects/:id route read with useParams, a catch-all 404, and a vercel.json rewrite so deep links survive a refresh.',
     highlights: [

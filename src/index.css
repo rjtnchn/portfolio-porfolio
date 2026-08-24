@@ -476,7 +476,12 @@ code {
   padding-left: 0.85rem;
 }
 
+/* Pinned to column 1 explicitly — without this, grid auto-placement can let
+   .featured__cue claim column 1 first and push the title into column 2,
+   which is what caused titles to render right-aligned. */
 .featured__title {
+  grid-column: 1;
+  text-align: left;
   font-size: 0.98rem;
   font-weight: 550;
 }
@@ -488,6 +493,7 @@ code {
 }
 
 .featured__cue {
+  grid-column: 2;
   grid-row: 1 / span 2;
   align-self: center;
   color: var(--muted-dim);
@@ -501,16 +507,17 @@ code {
 .focus {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1px;
-  background: var(--border);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  overflow: hidden;
+  gap: 1rem;
 }
 
+/* Same fix as .skills: individually bordered items instead of a shared
+   background peeking through the gap, so a partial last row never shows
+   an orphan filled cell. */
 .focus__item {
   padding: 1.5rem 1.35rem;
   background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
 }
 
 .focus__item h3 {
@@ -583,6 +590,7 @@ code {
 
 .chip--active,
 .chip--active:hover {
+
   background: var(--text);
   border-color: var(--text);
   color: var(--ink);
@@ -696,20 +704,20 @@ code {
 }
 
 /* --------------------------------------------------------------- about */
-
 .skills {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 1px;
-  background: var(--border);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  overflow: hidden;
+  gap: 1rem;
 }
 
+/* Each group carries its own border/radius, so an incomplete last row (e.g.
+   4 groups in a 3-column layout) leaves real empty space instead of an
+   orphan grid cell painted with the container's divider background. */
 .skills__group {
   padding: 1.35rem;
   background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
 }
 
 .skills__heading {
@@ -820,16 +828,17 @@ code {
 .meta {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-  gap: 1px;
-  background: var(--border);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  overflow: hidden;
+  gap: 1rem;
 }
 
+/* Same fix as .skills/.focus — individually bordered items so a partial
+   last row (e.g. 3 meta fields in a wider viewport) can't leave an orphan
+   grid cell painted with the container's divider background. */
 .meta__item {
   padding: 1.1rem 1.25rem;
   background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
 }
 
 .meta dt {

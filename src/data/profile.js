@@ -7,7 +7,7 @@
 export const profile = {
   name: 'Ralph Gabriel Clemeno', 
   initials: 'RG', 
-  role: 'BSCs Student',
+  role: 'BSCS Student',
   tagline:
     'I do not know anything, I only know what I know.',
   location: 'Philippines',

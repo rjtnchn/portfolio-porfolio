@@ -14,7 +14,7 @@ export default function About() {
         <h2 className="section__title">Bio</h2>
         <div className="prose">
           <p>
-            I&apos;m an Computer Science student focused on full stack
+            I&apos;m a Computer Science student focused on full stack
             development. Most of what I know came from building things, breaking
             them, and figuring out why they broke, which is still my favourite
             way to learn a new tool.
